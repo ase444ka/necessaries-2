@@ -7,9 +7,7 @@
         <li><RouterLink to="/cart">корзина</RouterLink></li>
       </ul>
     </nav>
-    <button>
-      Напиши нам
-    </button>
+    <button>Напиши нам</button>
   </footer>
 </template>
 <script>
@@ -27,7 +25,7 @@ export default {
   methods: {},
 };
 </script>
-<style scoped  lang="scss">
+<style scoped lang="scss">
 footer {
   color: var(--white);
   background-color: var(--primary);
@@ -40,7 +38,7 @@ footer {
   h1 {
     font-weight: bold;
     font-size: 2rem;
-    margin: 0; 
+    margin: 0;
     cursor: default;
   }
   ul {

@@ -16,18 +16,17 @@
   </header>
 </template>
 <script>
-import {useCartStore} from '../store';
-import {mapStores} from 'pinia';
+import { useCartStore } from '/src/store';
+import { mapStores } from 'pinia';
 export default {
   name: 'HeaderBlock',
 
   computed: {
     ...mapStores(useCartStore),
   },
-
 };
 </script>
-<style scoped  lang="scss">
+<style scoped lang="scss">
 header {
   border: 2px solid var(--primary);
   min-height: 60px;
@@ -40,7 +39,7 @@ header {
   h1 {
     font-weight: bold;
     font-size: 2rem;
-    margin: 0; 
+    margin: 0;
     cursor: default;
   }
   ul {

@@ -9,12 +9,12 @@
   </main>
 </template>
 <script>
-import ProductList from '../components/ProductList.vue';
-import ProductModal from '../components/ProductModal.vue';
-import AdsBlock from '../components/AdsBlock.vue';
+import ProductList from '/src/components/ProductList.vue';
+import ProductModal from '/src/components/ProductModal.vue';
+import AdsBlock from '/src/components/AdsBlock.vue';
 export default {
   name: 'ProductPage',
-  components: {AdsBlock, ProductModal, ProductList},
+  components: { AdsBlock, ProductModal, ProductList },
   mixins: [],
   props: {},
   data() {

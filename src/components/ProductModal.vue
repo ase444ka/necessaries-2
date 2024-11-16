@@ -26,17 +26,17 @@
           </div>
         </div>
         <div class="buy">
-          <div class="price">{{ product.price }}</div>
+          <div class="price">{{ product.price + 'руб' }}</div>
 
-          <button  @click="addToCart(product.id)">купить</button>
+          <button @click="addToCart(product.id)">купить</button>
         </div>
       </div>
     </div>
   </div>
 </template>
 <script>
-import {useProductStore, useCartStore} from '../store';
-import {mapStores} from 'pinia';
+import { useProductStore, useCartStore } from '/src/store';
+import { mapStores } from 'pinia';
 export default {
   name: 'ProductModal',
 
@@ -54,8 +54,8 @@ export default {
   },
 };
 </script>
- <style scoped lang="scss">
- .modal {
+<style scoped lang="scss">
+.modal {
   display: block;
   position: fixed;
   bottom: 0;
@@ -111,27 +111,26 @@ export default {
 .content {
   display: grid;
   grid-template-columns: 500px 1fr;
-  grid-template-rows: repeat(2,max-content);
+  grid-template-rows: repeat(2, max-content);
   gap: 40px;
   padding: 40px;
   @media screen and (max-width: 1000px) {
     grid-template-columns: 1fr;
     grid-template-rows: 600px max-content max-content;
-    
   }
 
   .image {
     overflow: hidden;
     @media screen and (min-width: 1000px) {
-    grid-row: span 2;
+      grid-row: span 2;
     }
     img {
-      object-fit:fill;
+      object-fit: fill;
       width: 100%;
       @media screen and (max-width: 1000px) {
         width: inherit;
         height: 100%;
-    }
+      }
     }
   }
   .text {
@@ -159,13 +158,13 @@ export default {
       padding: 13px;
       background-color: var(--primary);
       &:hover {
-      transform: translate3d(1px, 1px, -1px);
-    }
-    &:active {
-      background-color: var(--white);
-      color: var(--primary);
-      border: 2px solid var(--primary);
-    }
+        transform: translate3d(1px, 1px, -1px);
+      }
+      &:active {
+        background-color: var(--white);
+        color: var(--primary);
+        border: 2px solid var(--primary);
+      }
     }
   }
 }

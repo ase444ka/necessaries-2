@@ -1,6 +1,11 @@
 <template>
   <div class="products">
-    <RouterLink v-for="p in productStore.products" :key="p.id" class="product" :to="`/product/${p.id}`">
+    <RouterLink
+      v-for="p in productStore.products"
+      :key="p.id"
+      class="product"
+      :to="`/product/${p.id}`"
+    >
       <img :src="p.image" />
       <div class="title">
         {{ p.title }}
@@ -10,25 +15,24 @@
   </div>
 </template>
 <script>
-import {useProductStore, useCartStore} from '../store'
-import { mapStores } from 'pinia'
-
+import { useProductStore, useCartStore } from '/src/store';
+import { mapStores } from 'pinia';
 
 export default {
   name: 'ProductList',
 
   computed: {
-  ...mapStores(useProductStore, useCartStore)
-},
+    ...mapStores(useProductStore, useCartStore),
+  },
   watch: {},
   methods: {
     addToCart(id) {
-      this.cartStore.addProduct(id)
-    }
-  }
+      this.cartStore.addProduct(id);
+    },
+  },
 };
 </script>
-<style scoped  lang="scss">
+<style scoped lang="scss">
 .products {
   display: flex;
   gap: 30px;
@@ -55,21 +59,6 @@ export default {
       min-height: 140px;
     }
   }
-  .buy {
-    border: 2px solid var(--primary);
-    color: var(--primary);
-    text-transform: capitalize;
-    width: 100%;
-    padding: 13px;
-    background-color: var(--white);
-    cursor: pointer;
-    &:hover {
-      transform: translate3d(1px, 1px, -1px);
-    }
-    &:active {
-      background-color: var(--primary);
-      color: var(--white)
-    }
-  }
+  
 }
 </style>

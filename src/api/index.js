@@ -1,1 +1,1 @@
-export {productsApi} from './products'
+export { productsApi } from '/src/api/products';

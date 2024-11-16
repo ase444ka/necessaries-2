@@ -8,11 +8,11 @@
   </main>
 </template>
 <script>
-import ProductList from '../components/ProductList.vue';
-import AdsBlock from '../components/AdsBlock.vue';
+import ProductList from '/src/components/ProductList.vue';
+import AdsBlock from '/src/components/AdsBlock.vue';
 export default {
   name: 'MainPage',
-  components: {AdsBlock, ProductList},
+  components: { AdsBlock, ProductList },
   mixins: [],
   props: {},
   data() {

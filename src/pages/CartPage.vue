@@ -10,24 +10,26 @@
       </div>
       <div class="row" v-for="p in cartStore.orderedProducts" :key="p.id">
         <div>{{ p.title }}</div>
-        <div>{{p.price}}</div>
+        <div>{{ p.price }}</div>
         <div>{{ p.count }}</div>
         <div>{{ p.price * p.count }}</div>
         <div><button class="remove" @click="remove(p.id)"></button></div>
       </div>
-      
+
       <div class="row footer">
         <div>Итог</div>
         <div></div>
         <div>{{ cartStore.totalCount }}</div>
         <div>{{ cartStore.totalSum }}</div>
       </div>
+
+      <button class="buy cart-buy">плачу за все!</button>
     </section>
     <ProductModal />
   </main>
 </template>
 <script>
-import {useCartStore} from '../store';
+import {useCartStore} from '/src/store';
 import {mapStores} from 'pinia';
 export default {
   name: 'CartPage',
@@ -44,12 +46,17 @@ export default {
   mounted() {},
   methods: {
     remove(id) {
-      this.cartStore.removeProduct(id)
-    }
+      this.cartStore.removeProduct(id);
+    },
   },
 };
 </script>
 <style scoped lang="scss">
+
+.cart {
+  display: flex;
+  flex-direction: column;
+}
 .row {
   div:first-child {
     font-size: 16px;
@@ -77,9 +84,9 @@ export default {
     border-bottom: none;
     padding: 0;
   }
-  
 }
-.header, .footer {
+.header,
+.footer {
   * {
     font-weight: bold;
   }
@@ -95,5 +102,17 @@ export default {
   background-size: contain;
   background-repeat: no-repeat;
   cursor: pointer;
+}
+
+.cart-buy {
+  background-color: var(--primary);
+  color: var(--white);
+  width: 200px;
+  align-self: flex-end;
+  margin-top:  30px ;
+  &:active {
+    background-color: var(--white);
+    color: var(--primary);
+  }
 }
 </style>

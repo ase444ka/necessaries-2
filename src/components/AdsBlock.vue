@@ -87,8 +87,8 @@ export default {
   grid-template-columns: 2fr 1fr;
   grid-template-rows: 1fr 1fr;
   grid-template-areas:
-    'text   img'
-    'header img';
+    "text   img"
+    "header img";
   p {
     grid-area: text;
     font-size: 1.5rem;

@@ -1,5 +1,5 @@
-import {defineStore} from 'pinia';
-import {productsApi} from '../api'
+import { defineStore } from 'pinia';
+import { productsApi } from '/src/api';
 
 export const useProductStore = defineStore({
   id: 'product',
@@ -9,13 +9,13 @@ export const useProductStore = defineStore({
 
   getters: {
     getProductById: (state) => {
-      return (id) => state.products.find((p) => p.id == id)
+      return (id) => state.products.find((p) => p.id == id);
     },
   },
 
   actions: {
     async getProducts() {
-      this.products = await productsApi.getProducts()
+      this.products = await productsApi.getProducts();
     },
   },
 });
