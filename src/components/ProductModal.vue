@@ -25,7 +25,7 @@
             {{ product.rating.rate }}
           </div>
         </div>
-        <div class="buy">
+        <div class="customer-info">
           <div class="price">{{ product.price + 'руб' }}</div>
 
           <button @click="addToCart(product.id)">купить</button>
@@ -142,7 +142,7 @@ export default {
       font-size: 1.25rem;
     }
   }
-  .buy {
+  .customer-info {
     align-self: end;
     .price {
       font-size: 2.25rem;
