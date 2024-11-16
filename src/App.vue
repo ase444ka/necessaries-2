@@ -1,28 +1,47 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <HeaderBlock />
+
+    <RouterView />
+    <FooterBlock />
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import { mapStores } from 'pinia'
+import FooterBlock from './components/FooterBlock.vue';
+import HeaderBlock from './components/HeaderBlock.vue';
+import {useProductStore} from './store'
+
 
 export default {
-  name: "App",
   components: {
-    HelloWorld,
+    HeaderBlock,
+    FooterBlock,
+},
+computed: {
+  ...mapStores(useProductStore)
+},
+  mounted() {
+    
+    console.log('pr', useProductStore)
+    this.getProducts();
+  },
+  data() {
+    return {
+      products: [],
+    };
+  },
+  methods: {
+    async getProducts() {
+      try {
+        await this.productStore.getProducts()
+      } catch (e) {
+        alert(`Возникла ошибка: ${e.message}. Попробуйте позже`);
+      }
+    },
   },
 };
 </script>
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
+
